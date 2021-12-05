@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import ReactDom from 'react-dom';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useRouteMatch
+} from 'react-router-dom';
+import Contacts from './Components/Contacts/Contacts';
+import Hobbies from './Components/Hobbies/Hobbies';
+import Noteboard from './Components/Noteboard/Noteboard';
+import NavBar from './Components/Navbar';
+import Footer from './Components/Noteboard/Footer';
+import { BsTrash } from 'react-icons/fa';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    return (
+      <div>
+    <NavBar />
+      <Switch>
+          <Route path="/Hobbies">
+              <Hobbies />
+          </Route>
+          <Route path="/Contacts">
+            <Contacts />
+          </Route>
+          <Route path="/">
+              <Noteboard />
+          </Route>
+      </Switch>
+      <Footer />
+      </div>
 
-export default App;
+    );
+  }
+  
+  export default App;
+  
